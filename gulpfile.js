@@ -240,8 +240,8 @@ gulp.task('js', function() {
     .pipe(concat('app.js'))
     //.pipe(ngAnnotate())
     //.pipe(uglify())
-    //.pipe(rename({suffix: '.min'}))
-    //.pipe(sourcemaps.write('.'))
+    .pipe(rename({suffix: '.min'}))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(path.join(config.dest, 'js')))
     .pipe(browserSync.stream());
 });
