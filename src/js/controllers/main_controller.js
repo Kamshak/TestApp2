@@ -1,6 +1,6 @@
-angular.module('Svenpanel.controllers.Main', ['Cordova'])
+angular.module('Svenpanel.controllers.Main', ['fsCordova'])
 
-.controller('MainController', function($scope, deviceReady){
+.controller('MainController', function($scope, CordovaService){
   $scope.buttons = [
       {text: "1,2,3 Gude Laune!", sound: "sound24.mp3"},
       {text: "Hier Laune", sound: "sound25.mp3"},
@@ -9,7 +9,7 @@ angular.module('Svenpanel.controllers.Main', ['Cordova'])
       {text: "All about Laune", sound: "sound40.mp3"},
     ];
     
-    deviceReady.then(function(){
+    CordovaService.ready.then(function(){
       for(var i = 0; i < $scope.buttons.length; i++) {
         var src = "";
         if (angular.isDefined(window.cordova) || true) {
@@ -19,10 +19,11 @@ angular.module('Svenpanel.controllers.Main', ['Cordova'])
           }
           
           src = src + $scope.buttons[i].sound;
-          console.log(src);
         }
         
         $scope.buttons[i].media = new Media(src, console.log.bind(console), console.error.bind(console));
+        console.log($scope.buttons[i].media);
+        
       }
     });
 });

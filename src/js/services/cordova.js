@@ -1,19 +1,24 @@
-angular.module('Cordova', [])
+angular.module('fsCordova', [])
+    .service('CordovaService', ['$document', '$q',
+        function($document, $q) {
 
-.factory('deviceReady', function($q, $rootScope) {
+            var d = $q.defer(),
+                resolved = false;
 
-    return $q(function(resolve, reject) {
-        var done = function() {
-            resolve();
-        };
+            var self = this;
+            this.ready = d.promise;
 
-        if (typeof window.cordova === 'object') {
             document.addEventListener('deviceready', function() {
-                done();
-            }, false);
+                resolved = true;
+                d.resolve(window.cordova);
+            });
+
+            // Check to make sure we didn't miss the
+            // event (just in case)
+            setTimeout(function() {
+                if (!resolved) {
+                    if (window.cordova) d.resolve(window.cordova);
+                }
+            }, 3000);
         }
-        else {
-            setTimeout(done, 1000);
-        }
-    });
-});
+    ]);
