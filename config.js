@@ -71,7 +71,7 @@ module.exports = function(config) {
    * The host name to which weinre will be bound.
    * @type {String}
    */
-  config.weinre.boundHost = 'localhost';
+  config.weinre.boundHost = '92.222.75.39';
 
 
   /**

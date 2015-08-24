@@ -21,7 +21,7 @@ angular.module('Svenpanel.controllers.Main', ['Cordova'])
           src = src + $scope.buttons[i].sound;
         }
         
-        $scope.buttons.media = new Media(src, console.log.bind(console), console.error.bind(console));
+        $scope.buttons[i].media = new Media(src, console.log.bind(console), console.error.bind(console));
       }
     });
 });
