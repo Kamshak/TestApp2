@@ -19,6 +19,7 @@ angular.module('Svenpanel.controllers.Main', ['fsCordova'])
   }, ];
 
   CordovaService.ready.then(function() {
+    console.log("Device is ready");
     for (var i = 0; i < $scope.buttons.length; i++) {
       var src = "";
       if (device.platform.toLowerCase() == 'android') {
