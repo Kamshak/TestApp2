@@ -41,7 +41,7 @@ var config = {
   },
 
   weinre: {
-    httpPort:     8001,
+    httpPort:     8006,
     boundHost:    'localhost',
     verbose:      false,
     debug:        false,
