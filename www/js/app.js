@@ -37696,6 +37696,7 @@ angular.module('NavigationService', ['ui.router'])
 angular.module('Svenpanel.controllers.Main', ['fsCordova'])
 
 .controller('MainController', function($scope, CordovaService) {
+
   $scope.buttons = [{
     text: "1,2,3 Gude Laune!",
     sound: "sound24.mp3"
@@ -37712,6 +37713,15 @@ angular.module('Svenpanel.controllers.Main', ['fsCordova'])
     text: "All about Laune",
     sound: "sound40.mp3"
   }, ];
+
+  $scope.play = function(i) {
+    var src = "";
+    if (device.platform.toLowerCase() == 'android') {
+      src = "/android_asset/www/audio/";
+    }
+    src = src + $scope.buttons[i].sound;
+    var media = new Media(src, console.log.bind(console), console.error.bind(console));
+  };
 
   CordovaService.ready.then(function() {
     console.log("Device is ready");
@@ -37751,6 +37761,6 @@ angular.module('Svenpanel', [
 .run(function(Navigation, $rootScope) {
   $rootScope.$navigation = Navigation;
 });
-angular.module("Svenpanel").run(["$templateCache", function($templateCache) {$templateCache.put("home.html","<section class=\"section container-fluid scrollable\" ng-controller=\"MainController\">\n  <div class=\"service-container\" class=\"col-md-12 scrollable-content\">\n      <button class=\"btn-block service-btn btn btn-primary\" ng-repeat=\"button in buttons\" ng-click=\"button.media.play()\">\n          {{button.text}}\n      </button>\n  </div>\n</section>\n");
+angular.module("Svenpanel").run(["$templateCache", function($templateCache) {$templateCache.put("home.html","<section class=\"section container-fluid scrollable\" ng-controller=\"MainController\">\n  <div class=\"service-container\" class=\"col-md-12 scrollable-content\">\n      <button class=\"btn-block service-btn btn btn-primary\" ng-repeat=\"button in buttons\" ng-click=\"play($index)\">\n          {{button.text}}\n      </button>\n  </div>\n</section>\n");
 $templateCache.put("motm.html","<section class=\"section container-fluid text-center\">\n  <h1 class=\"page-header\">Mitarbeiter des Monats</h1>\n  <div class=\"containermw\">\n      <img src=\"images/niels.jpg\" class=\"circular\" style=\"width:50%; height:50%;\">\n      <h3 class=\"containermw\" style=\"color: red\">Dr. Niels Müller-Wickop</h3>\n  </div>\n</section>");
 $templateCache.put("sidebar.html","<h1 class=\"app-name\">Svenpanel</h1>\n\n<div class=\"scrollable\">\n  <h1 class=\"scrollable-header app-name\">Svenpanel</h1>  \n  <div class=\"scrollable-content\">\n    <div class=\"list-group\" ui-turn-off=\'uiSidebarLeft\'>\n      <a class=\"list-group-item\" href=\"#/\">Home <i class=\"fa fa-chevron-right pull-right\"></i></a>\n    </div>\n  </div>\n</div>");}]);

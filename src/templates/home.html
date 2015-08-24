@@ -1,6 +1,6 @@
 <section class="section container-fluid scrollable" ng-controller="MainController">
   <div class="service-container" class="col-md-12 scrollable-content">
-      <button class="btn-block service-btn btn btn-primary" ng-repeat="button in buttons" ng-click="button.media.play()">
+      <button class="btn-block service-btn btn btn-primary" ng-repeat="button in buttons" ng-click="play($index)">
           {{button.text}}
       </button>
   </div>
