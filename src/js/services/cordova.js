@@ -2,7 +2,7 @@ angular.module('Cordova', [])
 
 .factory('deviceReady', function($q, $rootScope) {
 
-    return new $q(function(resolve, reject) {
+    return $q(function(resolve, reject) {
         var done = function() {
             resolve();
         };
