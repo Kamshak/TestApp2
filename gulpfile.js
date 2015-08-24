@@ -238,10 +238,10 @@ gulp.task('js', function() {
     )
     .pipe(sourcemaps.init())
     .pipe(concat('app.js'))
-    .pipe(ngAnnotate())
-    .pipe(uglify())
-    .pipe(rename({suffix: '.min'}))
-    .pipe(sourcemaps.write('.'))
+    //.pipe(ngAnnotate())
+    //.pipe(uglify())
+    //.pipe(rename({suffix: '.min'}))
+    //.pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(path.join(config.dest, 'js')))
     .pipe(browserSync.stream());
 });
