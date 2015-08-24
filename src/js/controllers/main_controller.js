@@ -22,7 +22,7 @@ angular.module('Svenpanel.controllers.Main', ['Cordova'])
           console.log(src);
         }
         
-        $scope.buttons[i].media = new String(src, console.log.bind(console), console.error.bind(console));
+        $scope.buttons[i].media = new Media(src, console.log.bind(console), console.error.bind(console));
       }
     });
 });
