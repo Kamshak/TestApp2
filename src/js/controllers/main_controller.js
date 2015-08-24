@@ -15,7 +15,7 @@ angular.module('Svenpanel.controllers.Main', ['Cordova'])
         if (angular.isDefined(window.cordova)) {
           
           if (device.platform.toLowerCase() == 'android') {
-            src = "/android_asset/www/";
+            src = "/android_asset/www/audio/";
           }
           
           src = src + $scope.buttons[i].sound;
