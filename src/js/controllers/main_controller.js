@@ -12,9 +12,9 @@ angular.module('Svenpanel.controllers.Main', ['Cordova'])
     deviceReady.then(function(){
       for(var i = 0; i < $scope.buttons.length; i++) {
         var src = "";
-        if (angular.isDefined(window.cordova)) {
+        if (angular.isDefined(window.cordova) || true) {
           
-          if (device.platform.toLowerCase() == 'android') {
+          if (device.platform.toLowerCase() == 'android' || true) {
             src = "/android_asset/www/audio/";
           }
           

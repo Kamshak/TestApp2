@@ -60,9 +60,9 @@
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
-    <allow-intent href="geo:*" />
+    <allow-intent href="*" />
     <platform name="android">
-        <allow-intent href="market:*" />
+        <allow-intent href="*" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
