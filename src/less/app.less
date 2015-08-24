@@ -1,0 +1,103 @@
+@import "mobile-angular-ui/src/less/mobile-angular-ui-base.less";
+@import "mixins.less";
+@import "variables.less";
+
+@brand-primary:         #45B29D;
+@navbar-default-bg:                #334D5C;
+
+// Navbar links
+@navbar-default-link-color:                #FFF;
+@navbar-default-link-hover-color:          @navbar-default-link-color;
+@navbar-default-link-hover-bg:             transparent;
+@navbar-default-link-active-color:         @navbar-default-link-color;
+@navbar-default-link-active-bg:            darken(@navbar-default-bg, 6.5%);
+@navbar-default-link-disabled-color:       #ccc;
+@navbar-default-link-disabled-bg:          transparent;
+
+// Navbar brand label
+@navbar-default-brand-color:               #fff;
+@navbar-default-brand-hover-color:         darken(@navbar-default-brand-color, 10%);
+@navbar-default-brand-hover-bg:            transparent;
+
+@import url(http://fonts.googleapis.com/css?family=Questrial|Roboto+Slab:400,700,300);
+@font-family-sans-serif:  'Questrial', sans-serif;;
+@font-family-serif:       'Roboto Slab', serif;
+
+.navbar-app  {
+    color: white;
+}
+
+
+.btn-navbar {
+    padding:5px;
+    p {
+        line-height:1em;
+        display:block;
+        margin-top:-10px;
+    }
+    white-space: normal;
+}
+
+.navbar-absolute-bottom {
+    padding:5px;
+}
+
+.app-content {
+    background-color: white;
+}
+
+
+.action-container {
+    .action-btn:not(:last-of-type) {
+        margin-bottom: 5px;
+    }
+}
+
+.action-btn {
+    .make-xs-column(12);
+    float: none;
+    .btn-left-icon();
+}
+
+.btn-left-icon {
+    line-height: 20px;
+    i {
+        float: left !important;
+        line-height: 20px;
+        vertical-align: middle;
+    }
+}
+
+.service-container {
+    .service-btn:not(:last-of-type) {
+        margin-bottom: 10px;
+    }
+}
+
+.service-btn {
+    line-height: 30px;
+    i {
+        float: left !important;
+        line-height: 30px;
+        vertical-align: middle;
+    }
+}
+
+.containermw {
+    .pulse();
+    .animated(1s);
+    animation-iteration-count: infinite;
+    animation-timing-function: inOut;
+}
+
+.circular {
+	width: 300px;
+	height: 300px;
+	border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	animation-iteration-count: infinite;
+    animation-timing-function: inOut;
+	.animated(1s);
+	.wobble();
+}
